@@ -1,44 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portal para Desenvolvedores | Lukintosh</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f5f7fa;
-      color: #222;
+    /* Reset básico */
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.6;
+      padding-top: 70px; /* espaço pro menu fixo */
     }
     header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       background-color: #111;
       color: #00ff88;
-      padding: 20px;
-      text-align: center;
+      padding: 15px 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    h1 {
-      margin: 0;
+    header h1 {
+      font-size: 1.6rem;
+      user-select: none;
+    }
+    nav a {
+      color: #00ff88;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00cc66;
     }
     main {
-      padding: 40px 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
+      padding: 20px;
     }
     section {
       margin-bottom: 40px;
     }
     .card {
-      background: white;
+      background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 25px 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
     }
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+    }
+    .card h2 {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      gap: 10px;
+    }
+    /* Ícones simples com emojis */
+    .icon-sdk::before { content: "🛠️"; }
+    .icon-docs::before { content: "📚"; }
+    .icon-community::before { content: "🌐"; }
+
+    ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #00bb77;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #009955;
+      text-decoration: underline;
     }
     footer {
       text-align: center;
@@ -46,21 +101,39 @@
       font-size: 14px;
       background: #eee;
       color: #666;
+      margin-top: 60px;
     }
-    a {
-      color: #00bb77;
-      text-decoration: none;
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        padding: 10px 15px;
+        gap: 10px;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+      main {
+        padding: 15px 10px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Lukintosh Developer Portal</h1>
-    <p>Bem-vindo ao universo de desenvolvimento da Lukintosh</p>
+    <nav>
+      <a href="#sdks">SDKs & Ferramentas</a>
+      <a href="#docs">Documentações</a>
+      <a href="#community">Comunidade</a>
+    </nav>
   </header>
+
   <main>
-    <section class="card">
-      <h2>SDKs e Ferramentas</h2>
+    <section id="sdks" class="card">
+      <h2 class="icon-sdk">SDKs e Ferramentas</h2>
       <p>Explore os kits de desenvolvimento da Lukintosh para jogos, apps e experiências imersivas.</p>
       <ul>
         <li><a href="#">Lukintosh Play Engine SDK</a></li>
@@ -69,8 +142,8 @@
       </ul>
     </section>
 
-    <section class="card">
-      <h2>Documentações</h2>
+    <section id="docs" class="card">
+      <h2 class="icon-docs">Documentações</h2>
       <p>Documentações completas para você integrar com os produtos da Lukintosh.</p>
       <ul>
         <li><a href="#">Documentação da Engine</a></li>
@@ -79,11 +152,12 @@
       </ul>
     </section>
 
-    <section class="card">
-      <h2>Comunidade</h2>
+    <section id="community" class="card">
+      <h2 class="icon-community">Comunidade</h2>
       <p>Em breve: Fóruns, eventos, concursos e suporte da equipe Lukintosh.</p>
     </section>
   </main>
+
   <footer>
     &copy; 2025 Lukintosh Corporation. Todos os direitos reservados.
   </footer>
