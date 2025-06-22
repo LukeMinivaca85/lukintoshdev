@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inscrição - ID@Lukintosh</title>
+<style>
+  body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ddd;
+  }
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0;
+    background: #000;
+    border-bottom: 2px solid #00ff88;
+    padding: 15px 40px;
+    box-sizing: border-box;
+    z-index: 10000;
+  }
+  header h1 {
+    color: #00ff88;
+    font-weight: 700;
+    font-size: 1.8rem;
+    user-select: none;
+  }
+  nav {
+    margin-top: 65px;
+    background: #111;
+    padding: 12px 40px;
+    display: flex;
+    gap: 25px;
+  }
+  nav a {
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  nav a:hover, nav a:focus {
+    color: #009944;
+  }
+  main {
+    max-width: 600px;
+    margin: 50px auto 80px;
+    background: #1a1a1a;
+    padding: 30px 35px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px #000b;
+  }
+  form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #aaa;
+  }
+  form input, form select, form textarea {
+    width: 100%;
+    padding: 14px 12px;
+    margin-top: 6px;
+    background: #222;
+    border: none;
+    border-radius: 6px;
+    color: #eee;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: background-color 0.3s ease;
+  }
+  form input:focus, form select:focus, form textarea:focus {
+    background: #333;
+    outline: none;
+  }
+  button[type="submit"] {
+    margin-top: 30px;
+    width: 100%;
+    padding: 16px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: #00cc66;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button[type="submit"]:hover, button[type="submit"]:focus {
+    background: #009944;
+    outline: none;
+  }
+  .checkbox-label {
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #888;
+    user-select: none;
+  }
+  .checkbox-label input {
+    margin-right: 12px;
+    transform: scale(1.2);
+    vertical-align: middle;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Inscrição ID@Lukintosh</h1>
+</header>
+
+<nav role="navigation" aria-label="Menu secundário">
+  <a href="index.html">Início</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="sdk-download.html">SDKs</a>
+  <a href="documentacao.html">Documentação</a>
+  <a href="suporte.html">Suporte</a>
+</nav>
+
+<main>
+  <form novalidate>
+    <label for="nome">Nome Completo *</label>
+    <input type="text" id="nome" name="nome" required placeholder="Lucas Correa" />
+
+    <label for="empresa">Empresa / Estúdio</label>
+    <input type="text" id="empresa" name="empresa" placeholder="Lukintosh Studios" />
+
+    <label for="email">E-mail *</label>
+    <input type="email" id="email" name="email" required placeholder="contato@lukintosh.com" />
+
+    <label for="pais">País *</label>
+    <input type="text" id="pais" name="pais" required placeholder="Brasil" />
+
+    <label for="tipoProjeto">Tipo de Projeto *</label>
+    <select id="tipoProjeto" name="tipoProjeto" required>
+      <option value="" disabled selected>Selecione</option>
+      <option value="jogo">Jogo</option>
+      <option value="app">Aplicativo</option>
+      <option value="ferramenta">Ferramenta / Plugin</option>
+      <option value="outro">Outro</option>
+    </select>
+
+    <label for="descricao">Descrição do Projeto *</label>
+    <textarea id="descricao" name="descricao" rows="5" required placeholder="Conte sobre seu projeto..."></textarea>
+
+    <label class="checkbox-label" for="aceitoNDA">
+      <input type="checkbox" id="aceitoNDA" />
+      Eu aceito os termos do NDA e políticas da Lukintosh.
+    </label>
+
+    <button type="submit" id="submitBtn" disabled>Registrar</button>
+  </form>
+</main>
+
+<script>
+  const checkbox = document.getElementById('aceitoNDA');
+  const btn = document.getElementById('submitBtn');
+
+  checkbox.addEventListener('change', () => {
+    btn.disabled = !checkbox.checked;
+  });
+
+  btn.addEventListener('click', (event) => {
+    event.preventDefault(); // evita envio padrão
+
+    if (!checkbox.checked) {
+      alert('Você precisa aceitar os termos do NDA para continuar.');
+      return;
+    }
+
+    // Aqui você pode validar outros campos ou enviar pro backend
+    // Por enquanto, só salva o NDA e vai pro dashboard
+    localStorage.setItem('ndaAceito', 'true');
+
+    // Redireciona para o dashboard
+    window.location.href = 'dashboard.html';
+  });
+</script>
+
+</body>
+</html>

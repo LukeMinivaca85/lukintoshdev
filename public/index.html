@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ID@Lukintosh - Portal de Desenvolvedores</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #ddd;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0;
+    background: #000;
+    border-bottom: 2px solid #00ff88;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 9999;
+  }
+  header h1 {
+    font-weight: 700;
+    color: #00ff88;
+    font-size: 1.8rem;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #00ff88;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.25s ease;
+  }
+  nav a:hover, nav a:focus {
+    background: #007744;
+    outline: none;
+  }
+  /* Hero */
+  .hero {
+    margin-top: 75px;
+    background: linear-gradient(135deg, #00ff88cc 20%, #004422cc 100%);
+    padding: 100px 40px 80px;
+    color: #000;
+    text-align: left;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px #003322aa;
+  }
+  .hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+  .btn-primary {
+    background: #007744;
+    color: #00ff88;
+    padding: 15px 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    background: #004411;
+    color: #00cc66;
+    outline: none;
+  }
+  main {
+    max-width: 1200px;
+    margin: 60px auto 100px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  .card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px #0008;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover, .card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px #000c;
+  }
+  .card h3 {
+    font-size: 1.7rem;
+    color: #00ff88;
+    margin-bottom: 15px;
+  }
+  .card p {
+    color: #bbb;
+    flex-grow: 1;
+  }
+  .card a {
+    margin-top: 25px;
+    align-self: flex-start;
+    font-weight: 700;
+    color: #00cc66;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 18px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .card a:hover, .card a:focus {
+    background-color: #003311;
+    border-color: #00cc66;
+    outline: none;
+  }
+  footer {
+    background: #000;
+    padding: 30px 20px;
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    border-top: 1px solid #004422;
+  }
+
+  /* Responsivo */
+  @media(max-width: 700px) {
+    .hero h2 {
+      font-size: 2rem;
+    }
+    main {
+      grid-template-columns: 1fr;
+      margin: 40px auto 80px;
+    }
+    nav {
+      gap: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ID@Lukintosh</h1>
+  <nav role="navigation" aria-label="Menu principal">
+    <a href="index.html" tabindex="0">Início</a>
+    <a href="register.html" tabindex="0">Inscreva-se</a>
+    <a href="dashboard.html" tabindex="0">Dashboard</a>
+    <a href="sdk-download.html" tabindex="0">SDKs</a>
+    <a href="documentacao.html" tabindex="0">Documentação</a>
+    <a href="suporte.html" tabindex="0">Suporte</a>
+  </nav>
+</header>
+
+<section class="hero" role="banner" aria-label="Seja um desenvolvedor Lukintosh">
+  <h2>Crie. Publique. Inove.</h2>
+  <p>Junte-se à comunidade de desenvolvedores Lukintosh e leve seus jogos e apps para o próximo nível.</p>
+  <a href="register.html" class="btn-primary" role="button">Inscreva-se Agora</a>
+</section>
+
+<main role="main" aria-label="Benefícios e recursos">
+  <article class="card" tabindex="0">
+    <h3>SDKs e Ferramentas</h3>
+    <p>Obtenha acesso ao Lukintosh Play Engine SDK, APIs e ferramentas para desenvolver com máxima eficiência.</p>
+    <a href="sdk-download.html">Saiba Mais</a>
+  </article>
+
+  <article class="card" tabindex="0">
+    <h3>Documentação Completa</h3>
+    <p>Guias detalhados, tutoriais e exemplos para ajudar você a integrar e lançar seus projetos.</p>
+    <a href="documentacao.html">Explorar</a>
+  </article>
+
+  <article class="card" tabindex="0">
+    <h3>Dashboard do Desenvolvedor</h3>
+    <p>Gerencie seus projetos, acompanhe status, e interaja diretamente com o suporte Lukintosh.</p>
+    <a href="dashboard.html">Acessar</a>
+  </article>
+
+  <article class="card" tabindex="0">
+    <h3>Suporte e Comunidade</h3>
+    <p>Tenha suporte dedicado e conecte-se com outros desenvolvedores na comunidade Lukintosh.</p>
+    <a href="suporte.html">Contato</a>
+  </article>
+</main>
+
+<footer role="contentinfo">
+  &copy; 2025 Lukintosh Corporation. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
