@@ -1,167 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portal para Desenvolvedores | Lukintosh</title>
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f7fa;
-      color: #222;
-      line-height: 1.6;
-      padding-top: 70px; /* espaço pro menu fixo */
-    }
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #111;
-      color: #00ff88;
-      padding: 15px 30px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header h1 {
-      font-size: 1.6rem;
-      user-select: none;
-    }
-    nav a {
-      color: #00ff88;
-      text-decoration: none;
-      margin-left: 25px;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #00cc66;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ID@Lukintosh - Portal de Desenvolvedores</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #ddd;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0;
+    background: #000;
+    border-bottom: 2px solid #00ff88;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 9999;
+  }
+  header h1 {
+    font-weight: 700;
+    color: #00ff88;
+    font-size: 1.8rem;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #00ff88;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.25s ease;
+  }
+  nav a:hover, nav a:focus {
+    background: #007744;
+    outline: none;
+  }
+  /* Hero */
+  .hero {
+    margin-top: 75px;
+    background: linear-gradient(135deg, #00ff88cc 20%, #004422cc 100%);
+    padding: 100px 40px 80px;
+    color: #000;
+    text-align: left;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px #003322aa;
+  }
+  .hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 900;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin-bottom: 40px;
+  }
+  .btn-primary {
+    background: #007744;
+    color: #00ff88;
+    padding: 15px 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+  }
+  .btn-primary:hover, .btn-primary:focus {
+    background: #004411;
+    color: #00cc66;
+    outline: none;
+  }
+  main {
+    max-width: 1200px;
+    margin: 60px auto 100px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  .card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px #0008;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover, .card:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px #000c;
+  }
+  .card h3 {
+    font-size: 1.7rem;
+    color: #00ff88;
+    margin-bottom: 15px;
+  }
+  .card p {
+    color: #bbb;
+    flex-grow: 1;
+  }
+  .card a {
+    margin-top: 25px;
+    align-self: flex-start;
+    font-weight: 700;
+    color: #00cc66;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 18px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .card a:hover, .card a:focus {
+    background-color: #003311;
+    border-color: #00cc66;
+    outline: none;
+  }
+  footer {
+    background: #000;
+    padding: 30px 20px;
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    border-top: 1px solid #004422;
+  }
+
+  /* Responsivo */
+  @media(max-width: 700px) {
+    .hero h2 {
+      font-size: 2rem;
     }
     main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
+      grid-template-columns: 1fr;
+      margin: 40px auto 80px;
     }
-    section {
-      margin-bottom: 40px;
+    nav {
+      gap: 15px;
     }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 25px 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: default;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 30px rgba(0,0,0,0.15);
-    }
-    .card h2 {
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      gap: 10px;
-    }
-    /* Ícones simples com emojis */
-    .icon-sdk::before { content: "🛠️"; }
-    .icon-docs::before { content: "📚"; }
-    .icon-community::before { content: "🌐"; }
-
-    ul {
-      list-style: none;
-      padding-left: 10px;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    a {
-      color: #00bb77;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #009955;
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      background: #eee;
-      color: #666;
-      margin-top: 60px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        padding: 10px 15px;
-        gap: 10px;
-      }
-      nav a {
-        margin-left: 0;
-        margin-right: 15px;
-      }
-      main {
-        padding: 15px 10px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Lukintosh Developer Portal</h1>
-    <nav>
-       <a href="index.html">Home</a>
-      <a href="sdks.html">SDKs & Ferramentas</a>
-      <a href="docs.html">Documentações</a>
-      <a href="community.html">Comunidade</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-  </header>
 
-  <main>
-    <section id="sdks" class="card">
-      <h2 class="icon-sdk">SDKs e Ferramentas</h2>
-      <p>Explore os kits de desenvolvimento da Lukintosh para jogos, apps e experiências imersivas.</p>
-      <ul>
-        <li><a href="#">Lukintosh Play Engine SDK</a></li>
-        <li><a href="#">LuktoAI API</a></li>
-        <li><a href="#">Documentação dos Scripts</a></li>
-      </ul>
-    </section>
+<header>
+  <h1>ID@Lukintosh</h1>
+  <nav role="navigation" aria-label="Menu principal">
+    <a href="index.html" tabindex="0">Início</a>
+    <a href="register.html" tabindex="0">Inscreva-se</a>
+    <a href="dashboard.html" tabindex="0">Dashboard</a>
+    <a href="sdk-download.html" tabindex="0">SDKs</a>
+    <a href="documentacao.html" tabindex="0">Documentação</a>
+    <a href="suporte.html" tabindex="0">Suporte</a>
+  </nav>
+</header>
 
-    <section id="docs" class="card">
-      <h2 class="icon-docs">Documentações</h2>
-      <p>Documentações completas para você integrar com os produtos da Lukintosh.</p>
-      <ul>
-        <li><a href="#">Documentação da Engine</a></li>
-        <li><a href="#">Tutoriais para Iniciantes</a></li>
-        <li><a href="#">Exemplos de Código</a></li>
-      </ul>
-    </section>
+<section class="hero" role="banner" aria-label="Seja um desenvolvedor Lukintosh">
+  <h2>Crie. Publique. Inove.</h2>
+  <p>Junte-se à comunidade de desenvolvedores Lukintosh e leve seus jogos e apps para o próximo nível.</p>
+  <a href="register.html" class="btn-primary" role="button">Inscreva-se Agora</a>
+</section>
 
-    <section id="community" class="card">
-      <h2 class="icon-community">Comunidade</h2>
-      <p>Em breve: Fóruns, eventos, concursos e suporte da equipe Lukintosh.</p>
-    </section>
-  </main>
+<main role="main" aria-label="Benefícios e recursos">
+  <article class="card" tabindex="0">
+    <h3>SDKs e Ferramentas</h3>
+    <p>Obtenha acesso ao Lukintosh Play Engine SDK, APIs e ferramentas para desenvolver com máxima eficiência.</p>
+    <a href="sdk-download.html">Saiba Mais</a>
+  </article>
 
-  <footer>
-    &copy; 2025 Lukintosh Corporation. Todos os direitos reservados.
-  </footer>
+  <article class="card" tabindex="0">
+    <h3>Documentação Completa</h3>
+    <p>Guias detalhados, tutoriais e exemplos para ajudar você a integrar e lançar seus projetos.</p>
+    <a href="documentacao.html">Explorar</a>
+  </article>
+
+  <article class="card" tabindex="0">
+    <h3>Dashboard do Desenvolvedor</h3>
+    <p>Gerencie seus projetos, acompanhe status, e interaja diretamente com o suporte Lukintosh.</p>
+    <a href="dashboard.html">Acessar</a>
+  </article>
+
+  <article class="card" tabindex="0">
+    <h3>Suporte e Comunidade</h3>
+    <p>Tenha suporte dedicado e conecte-se com outros desenvolvedores na comunidade Lukintosh.</p>
+    <a href="suporte.html">Contato</a>
+  </article>
+</main>
+
+<footer role="contentinfo">
+  &copy; 2025 Lukintosh Corporation. Todos os direitos reservados.
+</footer>
+
 </body>
 </html>

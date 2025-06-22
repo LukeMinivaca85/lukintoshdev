@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Status dos Jogos - ID@Lukintosh</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #ddd;
+    min-height: 100vh;
+  }
+  header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: #000;
+    border-bottom: 2px solid #00ff88;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+  }
+  header h1 {
+    color: #00ff88;
+    font-weight: 700;
+    font-size: 1.8rem;
+    user-select: none;
+  }
+  nav {
+    margin-top: 65px;
+    background: #111;
+    padding: 12px 40px;
+    display: flex;
+    gap: 25px;
+  }
+  nav a {
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  nav a:hover, nav a:focus {
+    color: #009944;
+    outline: none;
+  }
+  main {
+    max-width: 900px;
+    margin: 40px auto 80px;
+    padding: 20px 40px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px #000a;
+  }
+  h2 {
+    color: #00ff88;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  li {
+    background: #222;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    box-shadow: inset 0 0 8px #00ff88aa;
+    transition: background-color 0.3s ease;
+  }
+  li:hover, li:focus-within {
+    background-color: #2a2a2a;
+  }
+  .status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 120px;
+    text-align: center;
+  }
+  .status-pendente {
+    background-color: #ffb700;
+    color: #000;
+    box-shadow: 0 0 8px #ffb700aa;
+  }
+  .status-aprovado {
+    background-color: #00ff88;
+    color: #000;
+    box-shadow: 0 0 10px #00ff88cc;
+  }
+  .status-reprovado {
+    background-color: #ff3b3b;
+    color: #fff;
+    box-shadow: 0 0 8px #ff3b3baa;
+  }
+  .status-aguardando {
+    background-color: #888;
+    color: #eee;
+    box-shadow: 0 0 8px #666666aa;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Status dos Jogos</h1>
+</header>
+
+<nav role="navigation" aria-label="Menu principal">
+  <a href="dashboard.html" tabindex="0">Dashboard</a>
+  <a href="index.html" tabindex="0">Início</a>
+  <a href="sdk-download.html" tabindex="0">SDKs</a>
+  <a href="documentacao.html" tabindex="0">Documentação</a>
+  <a href="suporte.html" tabindex="0">Suporte</a>
+</nav>
+
+<main role="main" aria-label="Lista de jogos e seus status">
+  <h2>Meus Jogos</h2>
+  <ul>
+    <li tabindex="0">
+      Lukintosh's Synthetic Vice
+      <span class="status status-pendente" aria-label="Status: Em Análise">Em Análise</span>
+    </li>
+    <li tabindex="0">
+      Demo VR Lukintosh
+      <span class="status status-aguardando" aria-label="Status: Aguardando Upload">Aguardando Upload</span>
+    </li>
+    <li tabindex="0">
+      Game Indie Toolset
+      <span class="status status-aprovado" aria-label="Status: Aprovado">Aprovado</span>
+    </li>
+    <li tabindex="0">
+      Projeto Experimental XYZ
+      <span class="status status-reprovado" aria-label="Status: Reprovado">Reprovado</span>
+    </li>
+  </ul>
+</main>
+
+</body>
+</html>
